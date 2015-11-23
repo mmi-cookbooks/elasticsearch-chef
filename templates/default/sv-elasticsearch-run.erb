@@ -1,0 +1,14 @@
+#!/bin/sh
+
+echo 'Restarting...'
+ulimit -n 256000
+
+# ElasticSearch work directory
+export WORK_DIR=/tmp/elasticsearch
+
+exec chpst -u elasticsearch:elasticsearch /opt/elasticsearch/bin/elasticsearch \
+                                          -Des.config=/etc/elasticsearch/elasticsearch.yml \
+                                          -Xmx<%= node[:elasticsearch][:es_max_mem] %> \
+                                          -Xms<%= node[:elasticsearch][:es_min_mem] %> \
+                                          2>&1
+
