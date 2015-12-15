@@ -36,7 +36,9 @@ end
 # Add intapt repository that has an `elasticsearch` package. Upstream does not provide one
 include_recipe 'ele-apt'
 
-package 'elasticsearch'
+package 'elasticsearch' do
+  action :upgrade
+end
 
 directory '/etc/elasticsearch' do
   owner 'root'
