@@ -23,15 +23,18 @@ include_recipe 'java'
 # We want it to always search unless we've set :seed_nodes in the
 # role or environment
 # For Chef-Solo we can set seed_nodes to nil safely
-seed_nodes = node[:elasticsearch][:seed_nodes] || []
+seed_nodes = node['elasticsearch']['seed_nodes'] || []
 if seed_nodes && seed_nodes.empty?
   search(:node, "recipes:elasticsearch AND chef_environment:#{node.chef_environment}") do |n|
-    if n[:elasticsearch][:cluster_name] == node[:elasticsearch][:cluster_name]
+    if n['elasticsearch']['cluster_name'] == node['elasticsearch']['cluster_name']
       # |= only add node if doesn't already exist, just a failsafe
-      seed_nodes |= [n[:elasticsearch][:listen_address]]
+      seed_nodes |= [n['elasticsearch']['listen_address']]
     end
   end
 end
+
+# Add intapt repository that has an `elasticsearch` package. Upstream does not provide one
+include_recipe 'ele-apt'
 
 package 'elasticsearch'
 
@@ -42,13 +45,13 @@ directory '/etc/elasticsearch' do
 end
 
 group 'elasticsearch' do
-  gid node[:elasticsearch][:gid]
+  gid node['elasticsearch']['gid']
 end
 
 user 'elasticsearch' do
   comment 'elasticsearch daemon user'
-  gid node[:elasticsearch][:gid]
-  uid node[:elasticsearch][:uid]
+  gid node['elasticsearch']['gid']
+  uid node['elasticsearch']['uid']
   system true
   shell '/bin/false'
 end
