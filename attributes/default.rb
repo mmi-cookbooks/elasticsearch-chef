@@ -1,10 +1,5 @@
 default['elasticsearch']['cluster_name'] = 'MyCluster'
-
-default['elasticsearch']['listen_address'] = begin
-                                               node['network']['ipaddress_eth0']
-                                             rescue
-                                               '0.0.0.0'
-                                             end
+default['elasticsearch']['listen_address'] = '0.0.0.0'
 
 default['elasticsearch']['http_port'] = 9200
 default['elasticsearch']['transport_port'] = 9300
