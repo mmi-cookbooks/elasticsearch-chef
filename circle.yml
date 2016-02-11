@@ -17,5 +17,5 @@ test:
         timeout: 120
     - bundle exec rake spec:
         timeout: 120
-    - bundle exec rake integration:cloud:
-        timeout: 1200
+#    - bundle exec rake integration:cloud:
+#        timeout: 1200
