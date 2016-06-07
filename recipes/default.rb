@@ -26,7 +26,7 @@ include_recipe 'java'
 seed_nodes = node['elasticsearch']['seed_nodes'] || []
 if seed_nodes && seed_nodes.empty?
   Chef::Log.debug("\e[32mElasticsearch:\e[33m computing seed_nodes.\e[0m")
-  search(:node, "recipes:elasticsearch AND chef_environment:#{node.chef_environment}") do |n|
+  search(:node, "(recipes:elasticsearch OR recipes:elasticsearch\:\:default) AND chef_environment:#{node.chef_environment}") do |n|
     if n['elasticsearch']['cluster_name'] == node['elasticsearch']['cluster_name']
       # |= only add node if doesn't already exist, just a failsafe
       seed_nodes |= [n['elasticsearch']['listen_address']]
