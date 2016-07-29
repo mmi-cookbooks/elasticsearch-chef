@@ -3,7 +3,7 @@ cluster:
   name: <%= node['elasticsearch']['cluster_name'] %>
 
 network:
-  host: <%= node['elasticsearch']['listen_address'] %>
+  publish_host: <%= node['elasticsearch']['listen_address'] %>
 
 http:
   port: <%= node['elasticsearch']['http_port'] %>
