@@ -21,7 +21,7 @@ require 'chef/application'
 }.freeze
 
 def stub_resources
-  stub_search("node", "(recipes:elasticsearch OR recipes:elasticsearch\\:\\:default) AND chef_environment:_default").and_return(true)
+  stub_search('node', '(recipes:elasticsearch OR recipes:elasticsearch\\:\\:default) AND chef_environment:_default').and_return(true)
 end
 
 at_exit { ChefSpec::Coverage.report! }
