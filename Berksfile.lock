@@ -15,7 +15,7 @@ GRAPH
   aptly (0.2.6)
     apt (>= 0.0.0)
   compat_resource (12.7.1)
-  elasticsearch (0.1.1)
+  elasticsearch (0.2.3)
     ele-apt (>= 0.0.0)
     iptables (>= 0.0.0)
     java (>= 0.0.0)

@@ -34,6 +34,8 @@ if seed_nodes && seed_nodes.empty?
   end
 end
 
+seed_nodes.sort!
+
 Chef::Log.debug("\e[32mElasticsearch:\e[33m computed seed_nodes: #{seed_nodes}.\e[0m")
 
 # Add intapt repository that has an `elasticsearch` package. Upstream does not provide one
