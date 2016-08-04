@@ -1,3 +1,6 @@
+# 0.2.3
+- add a sort on seed_nodes attribute to make it idempotent
+
 # 0.2.2
 - Revert listen_address logic that was removed but probably should not have been
 - Set min/max default to the same attribute (recommended best practice)
