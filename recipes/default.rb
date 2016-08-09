@@ -31,6 +31,7 @@ if seed_nodes && seed_nodes.empty?
       # |= only add node if doesn't already exist, just a failsafe
       seed_nodes |= [n['networks']['ipaddress_eth0'].sort]
     end
+    seed_nodes.sort!
   end
 end
 
