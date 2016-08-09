@@ -46,7 +46,7 @@ end
 directory '/etc/elasticsearch' do
   owner 'root'
   group 'root'
-  mode 0755
+  mode 0o755
 end
 
 group 'elasticsearch' do
@@ -64,12 +64,12 @@ end
 directory '/var/lib/elasticsearch' do
   owner 'elasticsearch'
   group 'elasticsearch'
-  mode 0700
+  mode 0o700
 end
 
 template '/etc/elasticsearch/elasticsearch.yml' do
   source 'elasticsearch.yml.erb'
-  mode 00644
+  mode 0o0644
   variables(
     seed_nodes: seed_nodes,
     client_only: false
@@ -79,7 +79,7 @@ end
 
 template '/etc/elasticsearch/logging.yml' do
   source 'logging.yml.erb'
-  mode 00644
+  mode 0o0644
   notifies :restart, 'service[elasticsearch]', :delayed
 end
 
