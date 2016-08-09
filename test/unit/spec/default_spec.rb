@@ -10,9 +10,9 @@ describe 'elasticsearch::default' do
     end.converge(described_recipe)
   end
 
-#  it 'installs a package with an explicit action' do
-#    expect(chef_run).to install_package('elasticsearch')
-#  end
+  #  it 'installs a package with an explicit action' do
+  #    expect(chef_run).to install_package('elasticsearch')
+  #  end
   it 'upgrades a package with an explicit action' do
     expect(chef_run).to upgrade_package('elasticsearch')
   end
@@ -24,7 +24,7 @@ describe 'elasticsearch::default' do
   it 'creates a logging template with an explicit action' do
     expect(chef_run).to create_template('/etc/elasticsearch/logging.yml')
   end
-  
+
   it 'creates a directory /etc/elasticsearch' do
     expect(chef_run).to create_directory('/etc/elasticsearch')
   end
