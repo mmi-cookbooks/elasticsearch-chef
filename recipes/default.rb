@@ -87,6 +87,7 @@ end
 runit_service 'elasticsearch' do
   owner 'daemon'
   group 'daemon'
+  sv_timeout 180
 end
 
 iptables_rule 'ports_elasticsearch' do
