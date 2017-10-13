@@ -1,6 +1,6 @@
 default['elasticsearch']['cluster_name'] = 'logstash_ele-dev'
 default['elasticsearch']['listen_address'] = begin
-                                               node['networks']['ipaddress_eth0']
+                                               node.ipaddress
                                              rescue
                                                '0.0.0.0'
                                              end
