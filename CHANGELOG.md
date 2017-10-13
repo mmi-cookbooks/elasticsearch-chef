@@ -1,3 +1,9 @@
+# 0.2.5
+- pin Elasticsearch version
+
+# 0.2.4
+- remove hardcoded eth0 references
+
 # 0.2.3
 - add a sort on seed_nodes attribute to make it idempotent
 
