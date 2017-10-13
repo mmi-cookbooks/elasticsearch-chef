@@ -41,7 +41,7 @@ Chef::Log.debug("\e[32mElasticsearch:\e[33m computed seed_nodes: #{seed_nodes}.\
 include_recipe 'ele-apt'
 
 package 'elasticsearch' do
-  action :upgrade
+  version '1.7.3'
 end
 
 directory '/etc/elasticsearch' do
