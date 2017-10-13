@@ -29,7 +29,7 @@ if seed_nodes && seed_nodes.empty?
   search(:node, "(recipes:elasticsearch OR recipes:elasticsearch\\:\\:default) AND chef_environment:#{node.chef_environment}") do |n|
     if n['elasticsearch']['cluster_name'] == node['elasticsearch']['cluster_name']
       # |= only add node if doesn't already exist, just a failsafe
-      seed_nodes |= [n['networks']['ipaddress_eth0']]
+      seed_nodes |= [n.ipaddress]
     end
     seed_nodes.sort!
   end
