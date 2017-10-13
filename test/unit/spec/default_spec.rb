@@ -14,7 +14,7 @@ describe 'elasticsearch::default' do
   #    expect(chef_run).to install_package('elasticsearch')
   #  end
   it 'upgrades a package with an explicit action' do
-    expect(chef_run).to upgrade_package('elasticsearch')
+    expect(chef_run).to install_package('elasticsearch').with(version: '1.7.3')
   end
 
   it 'creates a config template with an explicit action' do
