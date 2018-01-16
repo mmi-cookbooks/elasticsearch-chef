@@ -78,6 +78,12 @@ template '/etc/elasticsearch/elasticsearch.yml' do
   notifies :restart, 'service[elasticsearch]', :delayed
 end
 
+template '/etc/elasticsearch/jvm.options' do
+  source 'jvm.options.erb'
+  mode 0o0644
+  notifies :restart, 'service[elasticsearch]', :delayed
+end
+
 template '/etc/elasticsearch/logging.yml' do
   source 'logging.yml.erb'
   mode 0o0644
