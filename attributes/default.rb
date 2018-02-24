@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 default['elasticsearch']['cluster_name'] = 'logstash_ele-dev'
 default['elasticsearch']['listen_address'] = begin
                                                node['ipaddress']
-                                             rescue
+                                             rescue StandardError
                                                '0.0.0.0'
                                              end
 

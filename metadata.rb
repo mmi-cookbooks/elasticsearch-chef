@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 name 'elasticsearch'
 maintainer 'Rackspace'
 maintainer_email 'sfo-devops@lists.rackspace.com'

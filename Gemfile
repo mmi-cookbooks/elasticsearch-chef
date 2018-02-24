@@ -1,4 +1,6 @@
-# encoding: UTF-8
+
+# frozen_string_literal: true
+
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
@@ -29,9 +31,9 @@ group :integration_rackspace do
 end
 
 group :development do
-  gem 'thor-scmversion'
   gem 'guard'
-  gem 'guard-kitchen'
   gem 'guard-foodcritic'
+  gem 'guard-kitchen'
   gem 'guard-rubocop'
+  gem 'thor-scmversion'
 end

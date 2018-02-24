@@ -1,4 +1,6 @@
 
+# frozen_string_literal: true
+
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 # Based on magic_shell cookbook code, thanks @sethvargo.
@@ -32,7 +34,6 @@ namespace :integration do
       instance.test(:always)
     end
   end
-
   desc 'Test Kitchen with cloud plugins'
   task :cloud do
     if ENV['CI'] == 'true'

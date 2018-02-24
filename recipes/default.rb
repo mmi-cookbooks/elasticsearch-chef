@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Cookbook Name:: elasticsearch
 # Recipe:: default
@@ -24,7 +26,7 @@ include_recipe 'java'
 # role or environment
 # For Chef-Solo we can set seed_nodes to nil safely
 seed_nodes = node['elasticsearch']['seed_nodes'] || []
-if seed_nodes && seed_nodes.empty?
+if seed_nodes&.empty?
   Chef::Log.debug("\e[32mElasticsearch:\e[33m computing seed_nodes.\e[0m")
   search(:node, "(recipes:elasticsearch OR recipes:elasticsearch\\:\\:default) AND chef_environment:#{node.chef_environment}") do |n|
     if n['elasticsearch']['cluster_name'] == node['elasticsearch']['cluster_name']
