@@ -29,13 +29,9 @@ group :integration_rackspace do
 end
 
 group :development do
-  # gem 'coveralls'
   gem 'thor-scmversion'
-  # gem 'growl'
-  # gem 'rb-fsevent'
-  gem 'guard', '= 2.8.2'
+  gem 'guard'
   gem 'guard-kitchen'
   gem 'guard-foodcritic'
   gem 'guard-rubocop'
-  # gem 'fauxhai'
 end
