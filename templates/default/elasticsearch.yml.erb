@@ -41,6 +41,6 @@ bootstrap:
   mlockall: true
 
 path:
-  data: /var/lib/elasticsearch
+  data: <%= @path_data %>
   conf: /etc/elasticsearch
   work: /tmp/elasticsearch

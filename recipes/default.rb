@@ -68,11 +68,18 @@ directory '/var/lib/elasticsearch' do
   mode 0o700
 end
 
+if node.chef_environment == 'stage'
+  path_data = '/data/elasticsearch'
+else
+  path_data = '/var/lib/elasticsearch'
+end
+
 template '/etc/elasticsearch/elasticsearch.yml' do
   source 'elasticsearch.yml.erb'
   mode 0o0644
   variables(
     seed_nodes: seed_nodes,
+    path_data: path_data,
     client_only: false
   )
   notifies :restart, 'service[elasticsearch]', :delayed
